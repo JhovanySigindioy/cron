@@ -1,0 +1,14 @@
+name: Golpear API cada 10 minutos
+
+on:
+  schedule:
+    - cron: '*/10 * * * *' # Cada 10 minutos
+  workflow_dispatch: # Permite ejecutarlo manualmente si quieres
+
+jobs:
+  ping_api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Llamar a la API
+        run: curl -X GET 'https://gestion-construvidaayj.onrender.com'
+        
